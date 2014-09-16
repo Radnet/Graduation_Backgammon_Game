@@ -56,6 +56,12 @@ public class Game {
 		Response response = new Response();
 		Player player;
 		Player opponent;
+		//Validate positions
+		if(origin < 0 || origin > 24 || target < 1 || target > 24)
+		{
+			response.error = true;
+			response.errorMessage = "Movimento inválido. Origem ou destino não existe.";
+		}
 		//define player and opponent
 		if(playerColor == 1)
 		{
@@ -84,7 +90,7 @@ public class Game {
 			// If opponent has 1 piece on target
 			if(opponent.hasPieceOnPosition(target))
 			{
-				opponent.getPiece(target).position = -1;
+				opponent.getPiece(target).position = 0;
 			}
 			player.getPiece(origin).position = target;
 		}
