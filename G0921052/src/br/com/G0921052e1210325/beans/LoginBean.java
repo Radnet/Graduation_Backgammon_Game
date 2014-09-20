@@ -1,4 +1,4 @@
-package utils;
+package br.com.G0921052e1210325.beans;
 
 public class LoginBean {
 	

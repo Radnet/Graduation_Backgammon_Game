@@ -1,4 +1,4 @@
-package controllers;
+package br.com.G0921052e1210325.controllers;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import utils.LoginBean;
+import br.com.G0921052e1210325.beans.LoginBean;
 
 /**
  * Servlet implementation class LoginServlet

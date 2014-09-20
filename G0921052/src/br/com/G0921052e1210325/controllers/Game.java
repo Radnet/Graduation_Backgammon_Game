@@ -1,11 +1,11 @@
-package controllers;
+package br.com.G0921052e1210325.controllers;
 
 import java.util.ArrayList;
 
-import utils.Response;
-import components.Board;
-import components.Piece;
-import components.Player;
+import br.com.G0921052e1210325.beans.Response;
+import br.com.G0921052e1210325.models.Board;
+import br.com.G0921052e1210325.models.Piece;
+import br.com.G0921052e1210325.models.Player;
 
 
 public class Game {
