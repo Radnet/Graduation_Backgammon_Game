@@ -1,10 +1,10 @@
 package br.com.G0921052e1210325.beans;
 
-public class Response {
+public class GameResponseBean {
 	public boolean error;
 	public String errorMessage;
 	
-	public Response()
+	public GameResponseBean()
 	{
 		error = false;
 		errorMessage = "";

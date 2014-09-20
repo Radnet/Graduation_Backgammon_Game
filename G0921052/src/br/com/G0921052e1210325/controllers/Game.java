@@ -2,7 +2,7 @@ package br.com.G0921052e1210325.controllers;
 
 import java.util.ArrayList;
 
-import br.com.G0921052e1210325.beans.Response;
+import br.com.G0921052e1210325.beans.GameResponseBean;
 import br.com.G0921052e1210325.models.Board;
 import br.com.G0921052e1210325.models.Piece;
 import br.com.G0921052e1210325.models.Player;
@@ -12,9 +12,9 @@ public class Game {
 	
 	public Board gameBoard;
 	
-	public Response NewStartBoard(String player1Name, String player2Name)
+	public GameResponseBean NewStartBoard(String player1Name, String player2Name)
 	{
-		Response response = new Response();
+		GameResponseBean response = new GameResponseBean();
 		
 		//Setting Pieces
 		ArrayList<Piece> list1 = new ArrayList<Piece>();
@@ -51,9 +51,9 @@ public class Game {
 		return response;
 	}
 	
-	public Response movePiece(int playerColor, int origin, int target)
+	public GameResponseBean movePiece(int playerColor, int origin, int target)
 	{
-		Response response = new Response();
+		GameResponseBean response = new GameResponseBean();
 		Player player;
 		Player opponent;
 		//Validate positions
