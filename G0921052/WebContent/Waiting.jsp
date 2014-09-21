@@ -4,9 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="refresh" content="3; url=Waiting.jsp">
 <title>Aguarde</title>
 </head>
 <body>
-EM BREVE
+	Aguarde o outro jogador logar...
+	
+	<%
+	if(application.getAttribute("contador") != null)
+	{
+		if((Integer)application.getAttribute("contador") == 2)
+			request.getRequestDispatcher("Tabuleiro.jsp").forward(request, response);
+	}
+		
+	%>
+
 </body>
 </html>
