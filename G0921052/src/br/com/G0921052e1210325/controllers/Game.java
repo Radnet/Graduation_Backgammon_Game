@@ -10,7 +10,7 @@ import br.com.G0921052e1210325.models.Player;
 
 public class Game {
 	
-	public Board gameBoard;
+	/*public Board gameBoard;
 	
 	public GameResponseBean NewStartBoard(String player1Name, String player2Name)
 	{
@@ -97,5 +97,5 @@ public class Game {
 		
 		return response;
 	}
-
+*/
 }

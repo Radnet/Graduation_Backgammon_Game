@@ -3,11 +3,16 @@ package br.com.G0921052e1210325.models;
 public class Piece {
 	
 	public int color;
-	public int position;
 	
-	public Piece(int color, int position)
+	private Player owner;
+	
+	public Player getOwner() {
+		return owner;
+	}
+
+	public Piece(int color, Player owner)
 	{
 		this.color = color;
-		this.position = position;
+		this.owner = owner;
 	}
 }

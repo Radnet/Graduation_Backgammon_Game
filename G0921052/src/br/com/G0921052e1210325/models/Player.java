@@ -11,8 +11,8 @@ public class Player {
 	{
 		for(Piece piece : piecesList)
 		{
-			if(piece.position == position)
-				return true;
+			//if(piece.position == position)
+				//return true;
 		}
 		return false;
 	}
@@ -21,8 +21,8 @@ public class Player {
 		int count = 0;
 		for(Piece piece : piecesList)
 		{
-			if(piece.position == position)
-				count++;
+			//if(piece.position == position)
+				//count++;
 		}
 		if(count>=2)
 			return true;
@@ -32,8 +32,8 @@ public class Player {
 	{
 		for(Piece piece : piecesList)
 		{
-			if(piece.position == position)
-				return piece;
+			//if(piece.position == position)
+				//return piece;
 		}
 		return null;
 	}
