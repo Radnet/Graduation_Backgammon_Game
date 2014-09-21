@@ -17,8 +17,8 @@ public class DicesResult {
 		this.firstDice = first;
 		this.secondDice = second;
 	}
-	
-	public Boolean isEqual(){
+
+	public Boolean isEqual() {
 		return this.firstDice == this.secondDice;
 	}
 }

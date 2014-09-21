@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import br.com.G0921052e1210325.models.AmountOfMoves;
+import br.com.G0921052e1210325.models.Moves;
 import br.com.G0921052e1210325.models.Dices;
 import br.com.G0921052e1210325.models.DicesResult;
 
@@ -20,33 +20,33 @@ public class DicesTest {
 	}
 
 	@Test
-	public void getAmountOfMoves_should_return_two_moves_if_dicesResult_are_not_equal() {
+	public void getMoves_should_return_two_moves_if_dicesResult_are_not_equal() {
 
 		Dices dicesMock = Mockito.mock(Dices.class);
 
-		Mockito.when(dicesMock.getAmountOfMoves()).thenReturn(new AmountOfMoves(new DicesResult(2, 4)));
+		Mockito.when(dicesMock.getMoves()).thenReturn(new Moves(new DicesResult(2, 4)));
 
-		AmountOfMoves amountOfMoves = dicesMock.getAmountOfMoves();
+		Moves moves = dicesMock.getMoves();
 
-		Assert.assertEquals(2, amountOfMoves.getMoves().size());
-		Assert.assertEquals(2, amountOfMoves.getMoves().get(0).intValue());
-		Assert.assertEquals(4, amountOfMoves.getMoves().get(1).intValue());
+		Assert.assertEquals(2, moves.get().size());
+		Assert.assertEquals(2, moves.get().get(0).intValue());
+		Assert.assertEquals(4, moves.get().get(1).intValue());
 	}
-	
+
 	@Test
-	public void getAmountOfMoves_should_return_four_moves_if_dicesResult_are_equal() {
+	public void getMoves_should_return_four_moves_if_dicesResult_are_equal() {
 
 		Dices dicesMock = Mockito.mock(Dices.class);
 
-		Mockito.when(dicesMock.getAmountOfMoves()).thenReturn(new AmountOfMoves(new DicesResult(5, 5)));
+		Mockito.when(dicesMock.getMoves()).thenReturn(new Moves(new DicesResult(5, 5)));
 
-		AmountOfMoves amountOfMoves = dicesMock.getAmountOfMoves();
+		Moves moves = dicesMock.getMoves();
 
-		Assert.assertEquals(4, amountOfMoves.getMoves().size());
-		Assert.assertEquals(5, amountOfMoves.getMoves().get(0).intValue());
-		Assert.assertEquals(5, amountOfMoves.getMoves().get(1).intValue());
-		Assert.assertEquals(5, amountOfMoves.getMoves().get(2).intValue());
-		Assert.assertEquals(5, amountOfMoves.getMoves().get(3).intValue());
+		Assert.assertEquals(4, moves.get().size());
+		Assert.assertEquals(5, moves.get().get(0).intValue());
+		Assert.assertEquals(5, moves.get().get(1).intValue());
+		Assert.assertEquals(5, moves.get().get(2).intValue());
+		Assert.assertEquals(5, moves.get().get(3).intValue());
 	}
 
 }
