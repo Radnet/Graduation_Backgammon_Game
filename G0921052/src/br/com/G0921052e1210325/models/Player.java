@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class Player {
 	public String name;
 	public int color;
+	public int getColor() {
+		return color;
+	}
 	public ArrayList<Piece> piecesList;
 	
 	public boolean hasPieceOnPosition(int position)

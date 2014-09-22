@@ -24,10 +24,10 @@ public class PointTest {
 		Point p = new Point(PointNumber.Point1);
 		Player player = new Player();
 
-		p.pushPiece(new Piece(1, player));
-		p.pushPiece(new Piece(2, player));
-		p.pushPiece(new Piece(3, player));
-		p.pushPiece(new Piece(4, player));
+		p.pushPiece(new Piece(player));
+		p.pushPiece(new Piece(player));
+		p.pushPiece(new Piece(player));
+		p.pushPiece(new Piece(player));
 
 		Assert.assertFalse(p.isClosed());
 	}
@@ -37,7 +37,7 @@ public class PointTest {
 
 		Point p = new Point(PointNumber.Point1);
 
-		Boolean result = p.pushPiece(new Piece(1, new Player()));
+		Boolean result = p.pushPiece(new Piece(new Player()));
 
 		Assert.assertTrue(result);
 		Assert.assertEquals(1, p.getSize());
@@ -47,10 +47,10 @@ public class PointTest {
 	public void pushPiece_should_return_false_if_points_are_closed() {
 
 		Point p = new Point(PointNumber.Point1);
-		p.pushPiece(new Piece(1, new Player()));
-		p.pushPiece(new Piece(2, new Player()));
+		p.pushPiece(new Piece(new Player()));
+		p.pushPiece(new Piece(new Player()));
 
-		Boolean result = p.pushPiece(new Piece(1, new Player()));
+		Boolean result = p.pushPiece(new Piece(new Player()));
 
 		Assert.assertFalse(result);
 		Assert.assertEquals(2, p.getSize());
@@ -63,7 +63,7 @@ public class PointTest {
 
 		Player player = new Player();
 
-		p.pushPiece(new Piece(1, player));
+		p.pushPiece(new Piece(player));
 
 		Assert.assertEquals(1, p.getSize());
 		Assert.assertEquals(player, p.getOwner());
@@ -75,9 +75,9 @@ public class PointTest {
 		Point p = new Point(PointNumber.Point1);
 		Player player = new Player();
 
-		Piece piece1 = new Piece(1, player);
-		Piece piece2 = new Piece(2, player);
-		Piece piece3 = new Piece(3, player);
+		Piece piece1 = new Piece(player);
+		Piece piece2 = new Piece(player);
+		Piece piece3 = new Piece(player);
 
 		p.pushPiece(piece1);
 		p.pushPiece(piece2);

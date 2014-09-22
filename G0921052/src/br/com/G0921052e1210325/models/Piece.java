@@ -10,9 +10,10 @@ public class Piece {
 		return owner;
 	}
 
-	public Piece(int color, Player owner)
+	public Piece(Player owner)
 	{
-		this.color = color;
 		this.owner = owner;
+		this.color = owner.getColor();
+		
 	}
 }
