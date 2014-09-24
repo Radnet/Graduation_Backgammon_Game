@@ -4,19 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta http-equiv="refresh" content="3; url=Waiting.jsp">
-<title>Aguarde</title>
+<title>Gamão</title>
 </head>
 <body>
-	Aguarde o outro jogador logar...
-	
-	<%
-	if(application.getAttribute("allPlayersLogged") != null)
-	{
-		request.getRequestDispatcher("GameServlet").forward(request, response);
-	}
-		
-	%>
-
+	<form action="GameServlet" method="post">
+		<input type="submit" value="Jogar Dados">	
+	</form>
 </body>
 </html>
