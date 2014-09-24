@@ -9,6 +9,13 @@ public class Player {
 		return color;
 	}
 	public ArrayList<Piece> piecesList;
+	public Player(){
+	}
+	public Player(String name, int color)
+	{
+		this.name = name;
+		this.color = color;
+	}
 	
 	public boolean hasPieceOnPosition(int position)
 	{

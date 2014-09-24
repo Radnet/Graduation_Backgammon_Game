@@ -11,10 +11,9 @@
 	Aguarde o outro jogador logar...
 	
 	<%
-	if(application.getAttribute("contador") != null)
+	if(application.getAttribute("allPlayersLogged") != null)
 	{
-		if((Integer)application.getAttribute("contador") == 2)
-			request.getRequestDispatcher("Tabuleiro.jsp").forward(request, response);
+		request.getRequestDispatcher("Tabuleiro.jsp").forward(request, response);
 	}
 		
 	%>
