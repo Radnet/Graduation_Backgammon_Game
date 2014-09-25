@@ -40,6 +40,10 @@ public class UserAccessServlet extends HttpServlet {
 		else
 		{
 			session.setAttribute("player", player);
+			if(player.name.equals(userAccess.getPlayer1().name))
+				session.setAttribute("playerNumber", "1");
+			else
+				session.setAttribute("playerNumber", "2");
 			// If both players are logged
 			if(userAccess.getPlayer1()!= null && userAccess.getPlayer2()!= null)
 				application.setAttribute("allPlayersLogged", "ok");

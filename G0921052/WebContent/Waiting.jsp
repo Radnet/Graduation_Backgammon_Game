@@ -11,9 +11,13 @@
 	Aguarde o outro jogador logar...
 	
 	<%
-	if(application.getAttribute("allPlayersLogged") != null)
+	String playerNumber = (String)session.getAttribute("playerNumber");
+	if(application.getAttribute("allPlayersLogged") != null )
 	{
-		request.getRequestDispatcher("GameServlet").forward(request, response);
+		if(playerNumber.equals("1"))
+			request.getRequestDispatcher("GameServlet").forward(request, response);
+		else
+			request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 		
 	%>

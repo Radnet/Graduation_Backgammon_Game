@@ -20,7 +20,11 @@ import br.com.G0921052e1210325.models.UserAccess;
 @WebServlet("/GameServlet")
 public class GameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws
+	ServletException, IOException
+	{
+	doPost(request, response);
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -32,6 +36,7 @@ public class GameServlet extends HttpServlet {
 			Game game = Game.getGameInstance();
 			application.setAttribute("game", game);
 		}
+		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 
 }
