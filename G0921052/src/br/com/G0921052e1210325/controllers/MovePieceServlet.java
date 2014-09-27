@@ -79,5 +79,7 @@ public class MovePieceServlet extends HttpServlet {
 			piece = pointOrigin.popPiece();
 			pointDestination.pushPiece(piece);
 		}
+		session.setAttribute("resultBean", resultBean);
+		request.getRequestDispatcher("Board.jsp").forward(request, response);
 	}
 }
