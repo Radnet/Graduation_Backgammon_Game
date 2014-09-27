@@ -40,7 +40,7 @@ public class UserAccessServlet extends HttpServlet {
 		else
 		{
 			session.setAttribute("player", player);
-			if(player.name.equals(userAccess.getPlayer1().name))
+			if(player.number == 1)
 				session.setAttribute("playerNumber", "1");
 			else
 				session.setAttribute("playerNumber", "2");

@@ -30,6 +30,7 @@ public class NewGameServlet extends HttpServlet {
 		// create a new game
 		Game game = Game.getGameInstance();
 		application.setAttribute("game", game);
+		application.setAttribute("turn", game.getTurn());
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 

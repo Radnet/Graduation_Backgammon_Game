@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Player {
 	public String name;
-	public int color;
-	public int getColor() {
-		return color;
-	}
+	public int number;
+	public Dices dices;
 	public ArrayList<Piece> piecesList;
+	
 	public Player(){
 	}
-	public Player(String name, int color)
+	public Player(String name, int number)
 	{
 		this.name = name;
-		this.color = color;
+		this.number = number;
+		this.dices = new Dices();
 	}
 	
 	public boolean hasPieceOnPosition(int position)
@@ -46,5 +46,34 @@ public class Player {
 				//return piece;
 		}
 		return null;
+	}
+	public int getNumber() {
+		return number;
+	}
+	public boolean isMovimetOKforDiceResult(int origin, int destination)
+	{
+		//Dices
+		int fDice = dices.getDicesResult().getFirstDice();
+		int sDice = dices.getDicesResult().getSecondDice();
+		int diceSum = fDice+sDice;
+		//
+		int movmentLength = destination - origin;
+		if(this.number == 2)
+		{
+			movmentLength = origin - destination;
+		}
+		if(fDice == movmentLength)
+		{
+			return true;
+		}
+		else if(sDice == movmentLength)
+		{
+			return true;
+		}
+		else if(diceSum == movmentLength)
+		{
+			return true;
+		}
+		return false;
 	}
 }
