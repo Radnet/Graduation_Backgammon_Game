@@ -7,7 +7,7 @@
 <title>Gamão</title>
 </head>
 <body>
-	<form action="GameServlet" method="post">
+	<form action="DiceServlet" method="post">
 		<input type="submit" value="Jogar Dados">	
 	</form>
 </body>

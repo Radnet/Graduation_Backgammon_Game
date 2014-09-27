@@ -15,7 +15,7 @@
 	if(application.getAttribute("allPlayersLogged") != null )
 	{
 		if(playerNumber.equals("1"))
-			request.getRequestDispatcher("GameServlet").forward(request, response);
+			request.getRequestDispatcher("NewGameServlet").forward(request, response);
 		else
 			request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
