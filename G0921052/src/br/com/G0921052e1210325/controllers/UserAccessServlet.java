@@ -29,7 +29,7 @@ public class UserAccessServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ServletContext application = getServletContext();
 		
-		UserAccess userAccess = UserAccess.getUserAccess();
+		UserAccess userAccess = UserAccess.getUserAccessInstance();
 		GameResponseBean gameResponse = new GameResponseBean();
 		Player player = userAccess.tryCreatePlayer(request.getParameter("userName"), request.getParameter("userPassword"), gameResponse);
 		if(gameResponse.error)
@@ -39,14 +39,17 @@ public class UserAccessServlet extends HttpServlet {
 		}
 		else
 		{
-			session.setAttribute("player", player);
 			if(player.number == 1)
 				session.setAttribute("playerNumber", "1");
 			else
 				session.setAttribute("playerNumber", "2");
 			// If both players are logged
 			if(userAccess.getPlayer1()!= null && userAccess.getPlayer2()!= null)
+			{
 				application.setAttribute("allPlayersLogged", "ok");
+				application.setAttribute("turn", "1");
+			}
+			session.setAttribute("gameResponse", gameResponse);
 			request.getRequestDispatcher("Waiting.jsp").forward(request, response);
 		}
 	}

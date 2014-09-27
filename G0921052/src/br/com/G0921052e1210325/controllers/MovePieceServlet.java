@@ -11,13 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.G0921052e1210325.beans.GameResponseBean;
-import br.com.G0921052e1210325.models.Board;
-import br.com.G0921052e1210325.models.Dices;
 import br.com.G0921052e1210325.models.Game;
 import br.com.G0921052e1210325.models.Piece;
 import br.com.G0921052e1210325.models.Player;
 import br.com.G0921052e1210325.models.Point;
 import br.com.G0921052e1210325.models.PointNumber;
+import br.com.G0921052e1210325.models.UserAccess;
 
 /**
  * Servlet implementation class MovePieceServlet
@@ -33,35 +32,40 @@ public class MovePieceServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ServletContext application = getServletContext();
 		Game game = Game.getGameInstance();
-		GameResponseBean resultBean = new GameResponseBean(); 
+		GameResponseBean gameResponse = (GameResponseBean) session.getAttribute("gameResponse");
 		
 		// get origin and destination points
 		int origin = Integer.parseInt(request.getParameter("origin"));
 		int destination = Integer.parseInt(request.getParameter("destination"));
-		Point pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin]);
-		Point pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination]);
-		// get player and opponent
-		Player player = (Player)session.getAttribute("player");
+		Point pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin-1]);
+		Point pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination-1]);
+		// get player
+		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber"))); 
 		
 		// Movement compatible with dices
-		if(!player.isMovimetOKforDiceResult(origin, destination))
+		if(!player.isMovementOkForAvailableMoves(origin, destination))
 		{
-			resultBean.error = true;
-			resultBean.errorMessage = "Movimento inválido para os dados sorteados.";
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Movimento inválido para os dados sorteados.";
 		}
 		// piece on origin verification
 		else if(!pointOrigin.isOwner(player))
 		{
-			resultBean.error = true;
-			resultBean.errorMessage = "Você não possui peças na origem selecionada.";
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Você não possui peças na origem selecionada.";
 		}
 		// destination open
 		else if(pointDestination.isClosed())
 		{
-			resultBean.error = true;
-			resultBean.errorMessage = "O destino selecionado está fechado.";
+			gameResponse.error = true;
+			gameResponse.errorMessage = "O destino selecionado está fechado.";
 		}
-		
+		// destination not full
+		else if(pointDestination.getPieceQuantity() == 8)
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "O destino está lotado.";
+		}
 		// Movement is OK, make it happen!
 		else
 		{
@@ -78,8 +82,13 @@ public class MovePieceServlet extends HttpServlet {
 			}
 			piece = pointOrigin.popPiece();
 			pointDestination.pushPiece(piece);
+			// decrement move
+			player.removeMovement(origin, destination);
+			//Change turn if both dices are used
+			if(player.dices.getMoves().get().size() == 0)
+				application.setAttribute("turn", Integer.toString(player.opponent.number));
 		}
-		session.setAttribute("resultBean", resultBean);
-		request.getRequestDispatcher("Board.jsp").forward(request, response);
+		session.setAttribute("gameResponse", gameResponse);
+		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 }

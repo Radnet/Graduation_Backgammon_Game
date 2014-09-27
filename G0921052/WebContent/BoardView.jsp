@@ -1,3 +1,4 @@
+<%@page import="br.com.G0921052e1210325.beans.GameResponseBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,11 +8,26 @@
 <title>Gamão</title>
 </head>
 <body>
+BOARD VIEW
+
 <% 
 // IF TURN
-if(application.getAttribute("turn") == session.getAttribute("playerNumber") )
+if(((String)application.getAttribute("turn")).equals((String)session.getAttribute("playerNumber")))
 {
+	GameResponseBean gameResponse = (GameResponseBean)session.getAttribute("gameResponse");
+	if(gameResponse.error)
+	{
+		%>
+		<br/>
+		<%=gameResponse.errorMessage %>
+		<br/>
+		<% 
+	}
 %>
+	<br/>
+	Dado1: <%=gameResponse.dice1 %>
+	Dado2: <%=gameResponse.dice2 %>
+	<br/>
 	<form action="DiceServlet" method="post">
 		<input type="submit" value="Jogar Dados">	
 	</form>
@@ -70,10 +86,23 @@ if(application.getAttribute("turn") == session.getAttribute("playerNumber") )
 			<option value="23">23</option>
 			<option value="24">24</option>
 		</select>
+		<br/>
 		<input type="submit" value="Mover">
+	</form>
+	<br/>
+	<br/>
+	<form action="ChangeTurnServlet" method="post">
+		<input type="submit" value="Passar Vez">	
 	</form>
 <%
 }//END IF TURN
+else
+{
+%>
+<meta http-equiv="refresh" content="3; url=BoardView.jsp">
+Aguarde o amiginho jogar.
+<%
+}
 %>
 </body>
 </html>

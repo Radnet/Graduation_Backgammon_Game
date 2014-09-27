@@ -21,7 +21,7 @@ public class UserAccess {
 		return player2;
 	}
 
-	public static UserAccess getUserAccess()
+	public static UserAccess getUserAccessInstance()
 	{
 		if(userAccess == null)
 			userAccess = new UserAccess();
@@ -81,5 +81,11 @@ public class UserAccess {
 		else
 			autorize = false;
 		return autorize;
+	}
+	public Player getUserByNumber(int number)
+	{
+		if(number == 1)
+			return player1;
+		return player2;
 	}
 }

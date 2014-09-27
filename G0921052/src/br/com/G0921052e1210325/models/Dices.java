@@ -5,6 +5,7 @@ import java.util.Random;
 public class Dices {
 
 	private DicesResult dicesResult;
+	public Moves moves;
 
 	public DicesResult getDicesResult() {
 		return dicesResult;
@@ -13,11 +14,11 @@ public class Dices {
 	public void rool() {
 
 		this.dicesResult = new DicesResult(generateRandomNumberForDice(), generateRandomNumberForDice());
+		this.moves = new Moves(this.dicesResult);
 	}
 
 	public Moves getMoves() {
-
-		return new Moves(this.dicesResult);
+		return moves;
 	}
 
 	private int generateRandomNumberForDice() {

@@ -63,8 +63,9 @@ public class Point {
 		int size = this.getPieceQuantity() - 1;
 		Piece popedPiece = this.pieces.get(size);
 		this.pieces.remove(size);
+		if(getPieceQuantity() == 0)
+			owner = null;
 		return popedPiece;
-
 	}
 	
 	public boolean isOwner(Player player)

@@ -21,6 +21,62 @@ public class Board {
 		}
 		return null;
 	}
+	public Point findPoint(int number) {
+		PointNumber pointNumber;
+		if(number == 1)
+			pointNumber = PointNumber.Point1;
+		else if(number == 2)
+			pointNumber = PointNumber.Point2;
+		else if(number == 3)
+			pointNumber = PointNumber.Point3;
+		else if(number == 4)
+			pointNumber = PointNumber.Point4;
+		else if(number == 5)
+			pointNumber = PointNumber.Point5;
+		else if(number == 6)
+			pointNumber = PointNumber.Point6;
+		else if(number == 7)
+			pointNumber = PointNumber.Point7;
+		else if(number == 8)
+			pointNumber = PointNumber.Point8;
+		else if(number == 9)
+			pointNumber = PointNumber.Point9;
+		else if(number == 10)
+			pointNumber = PointNumber.Point10;
+		else if(number == 11)
+			pointNumber = PointNumber.Point11;
+		else if(number == 12)
+			pointNumber = PointNumber.Point12;
+		else if(number == 13)
+			pointNumber = PointNumber.Point13;
+		else if(number == 14)
+			pointNumber = PointNumber.Point14;
+		else if(number == 15)
+			pointNumber = PointNumber.Point15;
+		else if(number == 16)
+			pointNumber = PointNumber.Point16;
+		else if(number == 17)
+			pointNumber = PointNumber.Point17;
+		else if(number == 18)
+			pointNumber = PointNumber.Point18;
+		else if(number == 19)
+			pointNumber = PointNumber.Point19;
+		else if(number == 20)
+			pointNumber = PointNumber.Point20;
+		else if(number == 21)
+			pointNumber = PointNumber.Point21;
+		else if(number == 22)
+			pointNumber = PointNumber.Point22;
+		else if(number == 23)
+			pointNumber = PointNumber.Point23;
+		else 
+			pointNumber = PointNumber.Point24;
+		for (Point point : points) {
+			if (point.getPointNumber() == pointNumber)
+				return point;
+		}
+		return null;
+	}
 
 	public int getPointSize() {
 		return this.points.size();

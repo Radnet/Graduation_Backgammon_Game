@@ -13,7 +13,7 @@ public class Game {
 		{
 			game = new Game();
 			// New Board
-			UserAccess userAccess = UserAccess.getUserAccess();
+			UserAccess userAccess = UserAccess.getUserAccessInstance();
 			board = new Board(userAccess.getPlayer1(),userAccess.getPlayer2());
 			turn = 1;
 		}

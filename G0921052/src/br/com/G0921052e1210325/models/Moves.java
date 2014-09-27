@@ -25,6 +25,9 @@ public class Moves {
 	}
 
 	public List<Integer> get() {
-		return new ArrayList<Integer>(this.moves);
+		return this.moves;
+	}
+	public void removeMovement(int move){
+		moves.remove(((Integer)move));
 	}
 }
