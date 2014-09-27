@@ -13,7 +13,6 @@ public class Piece {
 	public Piece(Player owner)
 	{
 		this.owner = owner;
-		this.color = owner.getColor();
-		
+		this.color = owner.getNumber();
 	}
 }

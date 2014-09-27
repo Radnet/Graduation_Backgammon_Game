@@ -40,6 +40,9 @@ public class UserAccess {
 			else
 			{
 				player2 = new Player(name, 2);
+				//set opponents
+				player1.opponent = player2;
+				player2.opponent = player1;
 				return player2;
 			}
 		}

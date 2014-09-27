@@ -1,6 +1,8 @@
 package br.com.G0921052e1210325.models;
 
 public enum PointNumber {
+	PointBar1,
+	PointBar2,
 	Point1,
 	Point2,
 	Point3,

@@ -40,7 +40,7 @@ public class PointTest {
 		Boolean result = p.pushPiece(new Piece(new Player()));
 
 		Assert.assertTrue(result);
-		Assert.assertEquals(1, p.getSize());
+		Assert.assertEquals(1, p.getPieceQuantity());
 	}
 
 	@Test
@@ -53,7 +53,7 @@ public class PointTest {
 		Boolean result = p.pushPiece(new Piece(new Player()));
 
 		Assert.assertFalse(result);
-		Assert.assertEquals(2, p.getSize());
+		Assert.assertEquals(2, p.getPieceQuantity());
 	}
 
 	@Test
@@ -65,7 +65,7 @@ public class PointTest {
 
 		p.pushPiece(new Piece(player));
 
-		Assert.assertEquals(1, p.getSize());
+		Assert.assertEquals(1, p.getPieceQuantity());
 		Assert.assertEquals(player, p.getOwner());
 	}
 
@@ -86,7 +86,7 @@ public class PointTest {
 		Piece piece = p.popPiece();
 
 		Assert.assertEquals(piece3, piece);
-		Assert.assertEquals(2, p.getSize());
+		Assert.assertEquals(2, p.getPieceQuantity());
 	}
 
 	@Test
@@ -97,7 +97,7 @@ public class PointTest {
 		Piece piece = p.popPiece();
 
 		Assert.assertEquals(null, piece);
-		Assert.assertEquals(0, p.getSize());
+		Assert.assertEquals(0, p.getPieceQuantity());
 	}
 
 }

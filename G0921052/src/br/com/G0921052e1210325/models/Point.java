@@ -50,21 +50,37 @@ public class Point {
 		return true;
 	}
 
-	public int getSize() {
+	public int getPieceQuantity() {
 
 		return this.pieces.size();
 	}
 
 	public Piece popPiece() {
 
-		if(getSize() == 0)
+		if(getPieceQuantity() == 0)
 			return null;
 		
-		int size = this.getSize() - 1;
+		int size = this.getPieceQuantity() - 1;
 		Piece popedPiece = this.pieces.get(size);
 		this.pieces.remove(size);
 		return popedPiece;
 
 	}
-
+	
+	public boolean isOwner(Player player)
+	{
+		if(!this.isEmpty())
+		{
+			if(owner.number == player.number)
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean isEmpty()
+	{
+		if(this.owner == null)
+			return true;
+		return false;
+	}
 }

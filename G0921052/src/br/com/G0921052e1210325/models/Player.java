@@ -6,6 +6,7 @@ public class Player {
 	public String name;
 	public int number;
 	public Dices dices;
+	public Player opponent;
 	public ArrayList<Piece> piecesList;
 	
 	public Player(){
@@ -53,7 +54,7 @@ public class Player {
 	public boolean isMovimetOKforDiceResult(int origin, int destination)
 	{
 		//Dices
-		int fDice = dices.getDicesResult().getFirstDice();
+		int fDice = dices.getDicesResult().getFirstDice(); 
 		int sDice = dices.getDicesResult().getSecondDice();
 		int diceSum = fDice+sDice;
 		//

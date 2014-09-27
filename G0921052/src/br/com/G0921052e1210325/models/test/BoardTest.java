@@ -54,7 +54,7 @@ public class BoardTest {
 
 			Point point = board.findPoint(player1PointsNumbers.get(i));
 
-			Assert.assertEquals(player1PiecesInPoint.get(i).intValue(), point.getSize());
+			Assert.assertEquals(player1PiecesInPoint.get(i).intValue(), point.getPieceQuantity());
 			Assert.assertEquals(player1, point.getOwner());
 		}
 	}
@@ -83,7 +83,7 @@ public class BoardTest {
 
 			Point point = board.findPoint(player2PointsNumbers.get(i));
 
-			Assert.assertEquals(player2PiecesInPoint.get(i).intValue(), point.getSize());
+			Assert.assertEquals(player2PiecesInPoint.get(i).intValue(), point.getPieceQuantity());
 			Assert.assertEquals(player2, point.getOwner());
 		}
 	}
