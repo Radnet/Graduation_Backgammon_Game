@@ -1,3 +1,45 @@
+#dice1-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice1.gif');
+	background-size: 100% 100%;
+}
+
+#dice2-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice2.gif');
+	background-size: 100% 100%;
+}
+
+#dice3-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice3.gif');
+	background-size: 100% 100%;
+}
+
+#dice4-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice4.gif');
+	background-size: 100% 100%;
+}
+
+#dice5-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice5.gif');
+	background-size: 100% 100%;
+}
+
+#dice6-image{
+	width: 35px;
+	height: 35px;
+	background-image: url('../img/dice6.gif');
+	background-size: 100% 100%;
+}
+
 #board-image{
 	width: 1200px;
 	height: 800px;
