@@ -60,7 +60,7 @@ public class MovePieceServlet extends HttpServlet {
 			gameResponse.errorMessage = "Você não possui peças na origem selecionada.";
 		}
 		// destination open
-		else if(pointDestination.isClosed())
+		else if(pointDestination.isClosed(player))
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "O destino selecionado está fechado.";
@@ -89,18 +89,18 @@ public class MovePieceServlet extends HttpServlet {
 			pointDestination.pushPiece(piece);
 			// decrement move
 			player.removeMovement(origin, destination);
-			//Change turn if both dices are used
-			if(player.dices.getMoves().get().size() == 0)
-			{
-				gameResponse.dice1 = "";
-				gameResponse.dice2 = "";
-				player.dices.emptyDices();
-				application.setAttribute("turn", Integer.toString(player.opponent.number));
-			}
+		}
+		application.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
+		session.setAttribute("gameResponse", gameResponse);
+		//Change turn if movements are used
+		if(player.dices.getMoves().get().size() == 0)
+		{
+			gameResponse.dice1 = "";
+			gameResponse.dice2 = "";
+			player.dices.emptyDices();
+			application.setAttribute("turn", Integer.toString(player.opponent.number));
 		}
 		
-		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
-		session.setAttribute("gameResponse", gameResponse);
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 }

@@ -24,23 +24,12 @@ public class Point {
 		this.pieces = new ArrayList<Piece>();
 	}
 
-	public Boolean isClosed() {
+	public Boolean isClosed(Player player) {
 
-		Boolean isSameOwner = true;
-
-		for (Piece piece : pieces) {
-
-			if (piece.getOwner() != this.owner)
-				isSameOwner = false;
-		}
-
-		return this.pieces.size() >= 2 && !isSameOwner;
+		return this.pieces.size() >= 2 && (this.owner.number != player.number);
 	}
 
 	public Boolean pushPiece(Piece piece) {
-
-		if (isClosed())
-			return false;
 
 		if (this.pieces.size() == 0)
 			this.owner = piece.getOwner();

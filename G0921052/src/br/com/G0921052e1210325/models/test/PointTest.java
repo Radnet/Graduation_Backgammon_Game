@@ -12,10 +12,10 @@ public class PointTest {
 
 	@Test
 	public void isClosed_should_return_false_if_points_has_less_than_2_pieces() {
-
+		Player player = new Player();
 		Point p = new Point(PointNumber.Point1);
 
-		Assert.assertFalse(p.isClosed());
+		Assert.assertFalse(p.isClosed(player));
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class PointTest {
 		p.pushPiece(new Piece(player));
 		p.pushPiece(new Piece(player));
 
-		Assert.assertFalse(p.isClosed());
+		Assert.assertFalse(p.isClosed(player));
 	}
 
 	@Test

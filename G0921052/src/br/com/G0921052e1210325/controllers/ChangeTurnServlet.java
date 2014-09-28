@@ -35,7 +35,7 @@ public class ChangeTurnServlet extends HttpServlet {
 		session.setAttribute("gameResponse",gameResponse);
 		player.dices.emptyDices();
 		application.setAttribute("turn", Integer.toString(player.opponent.number));
-		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
+		application.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 
