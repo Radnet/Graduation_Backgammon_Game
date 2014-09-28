@@ -16,6 +16,9 @@ public class Dices {
 		this.dicesResult = new DicesResult(generateRandomNumberForDice(), generateRandomNumberForDice());
 		this.moves = new Moves(this.dicesResult);
 	}
+	public void emptyDices(){
+		this.dicesResult = null;
+	}
 
 	public Moves getMoves() {
 		return moves;

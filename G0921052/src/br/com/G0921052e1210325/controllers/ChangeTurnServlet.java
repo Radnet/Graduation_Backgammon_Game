@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.G0921052e1210325.beans.GameResponseBean;
 import br.com.G0921052e1210325.models.Player;
 import br.com.G0921052e1210325.models.UserAccess;
 
 /**
  * Servlet implementation class ChangeTurnServlet
  */
-@WebServlet("/ChangeTurnServlet")
+@WebServlet({"/ChangeTurnServlet", "/board/ChangeTurnServlet"})
 public class ChangeTurnServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,6 +28,11 @@ public class ChangeTurnServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		ServletContext application = getServletContext();
 		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber")));
+		GameResponseBean gameResponse = (GameResponseBean)session.getAttribute("gameResponse");
+		gameResponse.dice1 = "";
+		gameResponse.dice2 = "";
+		session.setAttribute("gameResponse",gameResponse);
+		player.dices.emptyDices();
 		application.setAttribute("turn", Integer.toString(player.opponent.number));
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}

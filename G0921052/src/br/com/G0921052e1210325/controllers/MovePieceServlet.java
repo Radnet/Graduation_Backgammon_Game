@@ -42,8 +42,13 @@ public class MovePieceServlet extends HttpServlet {
 		// get player
 		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber"))); 
 		
+		if(player.dices.getDicesResult() == null)
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Você precisa jogar os dados primeiro!";
+		}
 		// Movement compatible with dices
-		if(!player.isMovementOkForAvailableMoves(origin, destination))
+		else if(!player.isMovementOkForAvailableMoves(origin, destination))
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "Movimento inválido para os dados sorteados.";
@@ -86,7 +91,12 @@ public class MovePieceServlet extends HttpServlet {
 			player.removeMovement(origin, destination);
 			//Change turn if both dices are used
 			if(player.dices.getMoves().get().size() == 0)
+			{
+				gameResponse.dice1 = "";
+				gameResponse.dice2 = "";
+				player.dices.emptyDices();
 				application.setAttribute("turn", Integer.toString(player.opponent.number));
+			}
 		}
 		session.setAttribute("gameResponse", gameResponse);
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
