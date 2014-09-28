@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="css/board.css">
 <title>Gamão</title>
 </head>
 <body>
@@ -24,6 +25,281 @@ if(((String)application.getAttribute("turn")).equals((String)session.getAttribut
 		<% 
 	}
 %>
+
+<div id="board-image">
+		<div id="point-13" class="point-top">
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+		</div>
+		<div id="point-14" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+		<div id="point-15" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-16" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-17" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-18" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="barra" class="point-top">
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-19" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-20" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-21" class="point-top">
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+		</div>
+
+		<div id="point-22" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-23" class="point-top">
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+		</div>
+
+		<div id="point-24" class="point-top">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-12" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+		<div id="point-11" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-10" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-09" class="point-botton">
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+			<div class="piece blue-piece"></div>
+		</div>
+
+		<div id="point-08" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-07" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-06" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-05" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-04" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-03" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-02" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+
+		<div id="point-01" class="point-botton">
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+			<div class="piece black-piece"></div>
+		</div>
+	</div>
+
 	<br/>
 	Dado1: <%=gameResponse.dice1 %>
 	Dado2: <%=gameResponse.dice2 %>

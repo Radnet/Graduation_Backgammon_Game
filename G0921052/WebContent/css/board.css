@@ -1,0 +1,131 @@
+#board-image{
+	width: 1200px;
+	height: 800px;
+	background-image: url('../img/backgamon-board.gif');
+	background-size: 100% 100%;
+}
+
+.black-piece{
+	background: #000000;	
+}
+
+.blue-piece{
+	background: #024BA2;
+}
+
+.piece{
+	margin-top: 4px;
+	width: 40px;
+	height: 40px;
+	border-radius:25px;
+	margin-top: 4px;
+}
+
+.point-top{
+	float: left;
+	margin-top: 23px;
+}
+
+.point-botton{
+	margin-top: 420px;	
+	position: absolute;	
+}
+
+#point-13{
+	margin-left: 57px;
+}
+#point-14{
+	margin-left: 50px;
+}
+
+#point-15{
+	margin-left: 50px;
+}
+
+#point-16{
+	margin-left: 50px;
+}
+
+#point-17{
+	margin-left: 50px;
+}
+
+#point-18{
+	margin-left: 50px;
+}
+
+#barra{
+	float: left;		
+	margin-top: 100px;
+	margin-left: 34px;
+}
+
+#point-19{
+	margin-left: 34px;
+}
+
+#point-20{
+	margin-left: 50px;
+}
+
+#point-21{
+	margin-left: 50px;
+}
+
+#point-22{
+	margin-left: 50px;
+}
+
+#point-23{
+	margin-left: 50px;
+}
+
+#point-24{
+	margin-left: 50px;
+}
+
+#point-12{
+	margin-left: 58px;
+}
+#point-11{
+	margin-left: 147px;
+}
+#point-10{
+	margin-left: 237px;
+}
+
+#point-09{
+	margin-left: 327px;
+}
+
+#point-08{
+	margin-left: 415px;
+}
+
+#point-07{
+	margin-left: 505px;
+}
+
+#point-06{
+	margin-left: 655px;
+}
+
+#point-05{
+	margin-left: 743px;
+}
+
+#point-04{
+	margin-left: 833px;
+}
+
+#point-03{
+	margin-left: 923px;
+}
+
+#point-02{
+	margin-left: 1013px;
+}
+
+#point-01{
+	margin-left: 1102px;
+}
