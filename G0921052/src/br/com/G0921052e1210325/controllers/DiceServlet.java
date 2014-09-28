@@ -32,6 +32,7 @@ public class DiceServlet extends HttpServlet {
 		player.dices.rool();
 		gameResponse.dice1 = Integer.toString(player.dices.getDicesResult().getFirstDice());
 		gameResponse.dice2 = Integer.toString(player.dices.getDicesResult().getSecondDice());
+		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 

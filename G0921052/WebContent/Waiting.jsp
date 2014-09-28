@@ -1,3 +1,4 @@
+<%@page import="br.com.G0921052e1210325.models.Game"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,6 +18,7 @@
 		if(playerNumber.equals("1"))
 			request.getRequestDispatcher("NewGameServlet").forward(request, response);
 		else
+			request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 			request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 		

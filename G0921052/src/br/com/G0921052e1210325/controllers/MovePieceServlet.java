@@ -98,6 +98,8 @@ public class MovePieceServlet extends HttpServlet {
 				application.setAttribute("turn", Integer.toString(player.opponent.number));
 			}
 		}
+		
+		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		session.setAttribute("gameResponse", gameResponse);
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}

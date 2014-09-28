@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.G0921052e1210325.beans.GameResponseBean;
+import br.com.G0921052e1210325.models.Game;
 import br.com.G0921052e1210325.models.Player;
 import br.com.G0921052e1210325.models.UserAccess;
 
@@ -34,6 +35,7 @@ public class ChangeTurnServlet extends HttpServlet {
 		session.setAttribute("gameResponse",gameResponse);
 		player.dices.emptyDices();
 		application.setAttribute("turn", Integer.toString(player.opponent.number));
+		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 
