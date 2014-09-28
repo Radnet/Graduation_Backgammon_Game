@@ -318,6 +318,10 @@ else
 			}
 		%>
 		
+		<jsp:useBean id="playerBean" class="br.com.G0921052e1210325.beans.PlayerBean" scope="session" />
+		<br />
+		Jogador ${playerBean.number}
+		<div class="piece ${playerBean.color}"></div>
 		<br /> 
 		Dado1: <%=gameResponse.dice1%>
 		Dado2: <%=gameResponse.dice2%>

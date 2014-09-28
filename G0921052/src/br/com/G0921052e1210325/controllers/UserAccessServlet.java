@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.G0921052e1210325.beans.GameResponseBean;
+import br.com.G0921052e1210325.beans.PlayerBean;
 import br.com.G0921052e1210325.models.Player;
 import br.com.G0921052e1210325.models.UserAccess;
 
@@ -39,10 +40,22 @@ public class UserAccessServlet extends HttpServlet {
 		}
 		else
 		{
-			if(player.number == 1)
-				session.setAttribute("playerNumber", "1");
-			else
-				session.setAttribute("playerNumber", "2");
+			PlayerBean playerBean = new PlayerBean();
+			
+			if(player.number == 1){
+				playerBean.setNumber(userAccess.getPlayer1().getNumber());
+				playerBean.setColor(userAccess.getPlayer1().getColor());
+				session.setAttribute("playerNumber", Integer.toString(userAccess.getPlayer1().getNumber()));
+				session.setAttribute("playerBean", playerBean);
+			}
+				
+			else{
+				playerBean.setNumber(userAccess.getPlayer2().getNumber());
+				playerBean.setColor(userAccess.getPlayer2().getColor());
+				session.setAttribute("playerNumber", Integer.toString(userAccess.getPlayer2().getNumber()));
+				session.setAttribute("playerBean", playerBean);
+			}
+				
 			// If both players are logged
 			if(userAccess.getPlayer1()!= null && userAccess.getPlayer2()!= null)
 			{
