@@ -19,6 +19,9 @@ public class Dices {
 	public void emptyDices(){
 		this.dicesResult = null;
 	}
+	public boolean isEmpty(){
+		return dicesResult == null;
+	}
 
 	public Moves getMoves() {
 		return moves;

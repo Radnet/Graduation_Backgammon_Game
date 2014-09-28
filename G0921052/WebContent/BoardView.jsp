@@ -9,6 +9,10 @@ if(session.isNew())
 {
 	request.getRequestDispatcher("Index.jsp").forward(request, response);
 }
+else if(session.getAttribute("playerNumber") == null)
+{
+	request.getRequestDispatcher("Index.jsp").forward(request, response);
+}
 else
 {
 	%>
@@ -323,8 +327,8 @@ else
 		Jogador ${playerBean.number}
 		<div class="piece ${playerBean.color}"></div>
 		<br /> 
-		Dado1: <%=gameResponse.dice1%>
-		Dado2: <%=gameResponse.dice2%>
+		Dado1:  <div id="dice<%=gameResponse.dice1%>-image"></div>
+		Dado2:  <div id="dice<%=gameResponse.dice2%>-image"></div>
 		<br />
 		
 		<form action="DiceServlet" method="post">

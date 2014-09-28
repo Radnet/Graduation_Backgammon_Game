@@ -29,9 +29,17 @@ public class DiceServlet extends HttpServlet {
 		int playerNumber = Integer.parseInt((String) session.getAttribute("playerNumber"));
 		GameResponseBean gameResponse = (GameResponseBean) session.getAttribute("gameResponse");
 		Player player = UserAccess.getUserAccessInstance().getUserByNumber(playerNumber);
-		player.dices.rool();
-		gameResponse.dice1 = Integer.toString(player.dices.getDicesResult().getFirstDice());
-		gameResponse.dice2 = Integer.toString(player.dices.getDicesResult().getSecondDice());
+		if(player.dices.isEmpty())
+		{
+			player.dices.rool();
+			gameResponse.dice1 = Integer.toString(player.dices.getDicesResult().getFirstDice());
+			gameResponse.dice2 = Integer.toString(player.dices.getDicesResult().getSecondDice());
+		}
+		else
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Você já jogou os dados!";
+		}
 		request.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}

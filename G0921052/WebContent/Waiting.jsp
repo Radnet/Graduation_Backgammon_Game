@@ -16,6 +16,10 @@
 	{
 		request.getRequestDispatcher("Index.jsp").forward(request, response);
 	}
+	else if(session.getAttribute("playerNumber") == null)
+	{
+		request.getRequestDispatcher("Index.jsp").forward(request, response);
+	}
 	else if(application.getAttribute("allPlayersLogged") != null )
 	{
 		if(playerNumber.equals("1"))
