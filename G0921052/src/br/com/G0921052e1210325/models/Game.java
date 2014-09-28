@@ -1,5 +1,6 @@
 package br.com.G0921052e1210325.models;
 
+
 public class Game {
 	
 	private static Game game;
@@ -25,5 +26,7 @@ public class Game {
 	public int getTurn(){
 		return turn;
 	}
+	
+	
 	
 }

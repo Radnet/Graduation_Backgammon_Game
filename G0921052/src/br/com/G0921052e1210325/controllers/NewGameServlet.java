@@ -27,7 +27,10 @@ public class NewGameServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// create a new game
-		Game.getGameInstance();
+		Game game = Game.getGameInstance();
+		
+		request.setAttribute("boardBean", game.getBoard().getBoardBean());
+		
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 
