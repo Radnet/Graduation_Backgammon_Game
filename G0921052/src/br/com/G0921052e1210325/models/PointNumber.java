@@ -24,7 +24,5 @@ public enum PointNumber {
 	Point21,
 	Point22,
 	Point23,
-	Point24,
-	PointBar1,
-	PointBar2,
+	Point24
 }

@@ -10,6 +10,10 @@ public class Board {
 	private List<Point> points;
 	private Bar bar; 
 
+	public Bar getBar() {
+		return bar;
+	}
+
 	public Board(Player player1, Player player2) {
 		setupPoints();
 		setupPointsForPlayers(player1, player2);
@@ -129,14 +133,12 @@ public class Board {
 		FillPoint(PointNumber.Point6, player2, 5);
 		FillPoint(PointNumber.Point8, player2, 3);
 		FillPoint(PointNumber.Point12, player1, 5);
-		FillPoint(PointNumber.PointBar1, player1, 0);
 
 		// for player 2
 		FillPoint(PointNumber.Point24, player2, 2);
 		FillPoint(PointNumber.Point19, player1, 5);
 		FillPoint(PointNumber.Point17, player1, 3);
 		FillPoint(PointNumber.Point13, player2, 5);
-		FillPoint(PointNumber.PointBar2, player2, 0);
 
 		// for empty points
 		FillPoint(PointNumber.Point2, null, 0);

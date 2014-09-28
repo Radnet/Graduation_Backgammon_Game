@@ -35,18 +35,39 @@ public class MovePieceServlet extends HttpServlet {
 		Game game = Game.getGameInstance();
 		GameResponseBean gameResponse = (GameResponseBean) session.getAttribute("gameResponse");
 		
+		// get player
+		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber"))); 
+		
 		// get origin and destination points
 		int origin = Integer.parseInt(request.getParameter("origin"));
 		int destination = Integer.parseInt(request.getParameter("destination"));
-		Point pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin-1]);
+		Point pointOrigin;
+		if(origin == 25)
+			pointOrigin = null;
+		else
+			pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin-1]);
 		Point pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination-1]);
-		// get player
-		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber"))); 
 		
 		if(player.dices.getDicesResult() == null)
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "Você precisa jogar os dados primeiro!";
+		}
+		else if(origin != 25 && (game.getBoard().getBar().hasPiece(player)))
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Você possui peças na barra, tire ela de lá primeiro.";
+		}
+		// Bar verifications
+		else if(origin == 25 && !game.getBoard().getBar().hasPiece(player))
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Você não possui peças na barra.";
+		}
+		else if( (player.number == 1 && destination > 6) || (player.number == 2 && destination < 19) )
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "O destino da barra só pode ser no Primeiro Quadrante.";
 		}
 		// Movement compatible with dices
 		else if(!player.isMovementOkForAvailableMoves(origin, destination))
@@ -55,11 +76,12 @@ public class MovePieceServlet extends HttpServlet {
 			gameResponse.errorMessage = "Movimento inválido para os dados sorteados.";
 		}
 		// piece on origin verification
-		else if(!pointOrigin.isOwner(player))
+		else if(origin != 25 && !pointOrigin.isOwner(player))
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "Você não possui peças na origem selecionada.";
 		}
+		
 		// destination open
 		else if(pointDestination.isClosed(player))
 		{
@@ -80,28 +102,26 @@ public class MovePieceServlet extends HttpServlet {
 			if(pointDestination.getPieceQuantity() == 1)
 			{
 				piece = pointDestination.popPiece();
-				if(piece.color == 1)
-					game.getBoard().findPoint(PointNumber.PointBar1).pushPiece(piece);
-				else
-					game.getBoard().findPoint(PointNumber.PointBar2).pushPiece(piece);
-				
+				game.getBoard().getBar().pushPiece(piece);				
 			}
-			piece = pointOrigin.popPiece();
+			if(pointOrigin == null)
+				piece = game.getBoard().getBar().popPiece(player);
+			else
+				piece = pointOrigin.popPiece();
 			pointDestination.pushPiece(piece);
 			// decrement move
 			player.removeMovement(origin, destination);
+			//Change turn if movements are used
+			if(player.dices.getMoves().get().size() == 0)
+			{
+				DiceBean diceBean = new DiceBean();
+				application.setAttribute("diceBean", diceBean);
+				player.dices.emptyDices();
+				application.setAttribute("turn", Integer.toString(player.opponent.number));
+			}
 		}
 		application.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());
 		session.setAttribute("gameResponse", gameResponse);
-		//Change turn if movements are used
-		if(player.dices.getMoves().get().size() == 0)
-		{
-			DiceBean diceBean = new DiceBean();
-			application.setAttribute("diceBean", diceBean);
-			player.dices.emptyDices();
-			application.setAttribute("turn", Integer.toString(player.opponent.number));
-		}
-		
 		request.getRequestDispatcher("BoardView.jsp").forward(request, response);
 	}
 }
