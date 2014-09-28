@@ -7,32 +7,42 @@ public class Player {
 	public String name;
 	public int number;
 	public Dices dices;
+	private String color;
+
+	public String getColor() {
+		return color;
+	}
+
 	public Player opponent;
 	public ArrayList<Piece> piecesList;
-	
-	public Player(){
+
+	public Player() {
 	}
-	public Player(String name, int number)
-	{
+
+	public Player(String name, int number, String color) {
 		this.name = name;
 		this.number = number;
 		this.dices = new Dices();
+		this.color = color;
 	}
+
 	public int getNumber() {
 		return number;
 	}
+
 	public boolean isMovementOkForAvailableMoves(int origin, int destination) {
 		List<Integer> moves = dices.getMoves().get();
 		Integer movementLength = destination - origin;
-		if(number == 2)
+		if (number == 2)
 			movementLength = origin - destination;
-		if(moves.contains(movementLength))
+		if (moves.contains(movementLength))
 			return true;
 		return false;
 	}
+
 	public void removeMovement(int origin, int destination) {
 		Integer movementLength = destination - origin;
-		if(number == 2)
+		if (number == 2)
 			movementLength = origin - destination;
 		dices.moves.removeMovement(movementLength);
 	}

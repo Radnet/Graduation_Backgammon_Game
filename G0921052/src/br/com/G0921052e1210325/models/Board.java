@@ -3,8 +3,6 @@ package br.com.G0921052e1210325.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.corba.se.impl.interceptors.PINoOpHandlerImpl;
-
 import br.com.G0921052e1210325.beans.BoardBean;
 
 public class Board {
@@ -155,24 +153,26 @@ public class Board {
 		FillPoint(PointNumber.Point23, null, 0);
 	}
 
-	public BoardBean getBoardBean(){
-		
+	public BoardBean getBoardBean() {
+
 		BoardBean boardBean = new BoardBean();
 
 		for (PointNumber pointNumber : PointNumber.class.getEnumConstants()) {
-		
+
 			Point p = findPoint(pointNumber);
+
+			Player player1 = UserAccess.getUserAccessInstance().getPlayer1();
+			Player player2 = UserAccess.getUserAccessInstance().getPlayer2();
 			
-			if(p.getOwner() == UserAccess.getUserAccessInstance().getPlayer1()){
-		
-				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), "blue-piece");	
+			if (p.getOwner() == player1) {
+
+				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), player1.getColor());
+			} else {
+				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), player2.getColor());
 			}
-			else{
-				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), "black-piece");
-			}
-			
+
 		}
-			
+
 		return boardBean;
 	}
 }
