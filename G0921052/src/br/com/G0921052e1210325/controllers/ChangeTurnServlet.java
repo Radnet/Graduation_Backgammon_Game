@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import br.com.G0921052e1210325.beans.DiceBean;
 import br.com.G0921052e1210325.beans.GameResponseBean;
 import br.com.G0921052e1210325.models.Game;
 import br.com.G0921052e1210325.models.Player;
@@ -30,8 +31,8 @@ public class ChangeTurnServlet extends HttpServlet {
 		ServletContext application = getServletContext();
 		Player player = UserAccess.getUserAccessInstance().getUserByNumber(Integer.parseInt((String)session.getAttribute("playerNumber")));
 		GameResponseBean gameResponse = (GameResponseBean)session.getAttribute("gameResponse");
-		gameResponse.dice1 = "";
-		gameResponse.dice2 = "";
+		DiceBean diceBean = new DiceBean();
+		application.setAttribute("diceBean", diceBean);
 		session.setAttribute("gameResponse",gameResponse);
 		player.dices.emptyDices();
 		application.setAttribute("turn", Integer.toString(player.opponent.number));

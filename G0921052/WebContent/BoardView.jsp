@@ -307,6 +307,15 @@ else
 				<div class="piece ${boardBean.point1[0]}"></div>
 			</div>
 		</div>
+		<jsp:useBean id="playerBean" class="br.com.G0921052e1210325.beans.PlayerBean" scope="session" />
+		<br />
+		Jogador ${playerBean.number}
+		<div class="piece ${playerBean.color}"></div>
+		<br /> 
+		<jsp:useBean id="diceBean" class="br.com.G0921052e1210325.beans.DiceBean" scope="application" />
+		Dado1:  <div id="dice${diceBean.dice1}-image"></div>
+		Dado2:  <div id="dice${diceBean.dice2}-image"></div>
+		<br />
 	
 		<%
 		// IF IS YOUR TURN
@@ -321,16 +330,6 @@ else
 				<%
 			}
 		%>
-		
-		<jsp:useBean id="playerBean" class="br.com.G0921052e1210325.beans.PlayerBean" scope="session" />
-		<br />
-		Jogador ${playerBean.number}
-		<div class="piece ${playerBean.color}"></div>
-		<br /> 
-		Dado1:  <div id="dice<%=gameResponse.dice1%>-image"></div>
-		Dado2:  <div id="dice<%=gameResponse.dice2%>-image"></div>
-		<br />
-		
 		<form action="DiceServlet" method="post">
 			<input type="submit" value="Jogar Dados">
 		</form>
