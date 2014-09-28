@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Gamão - G0921052 e G1210325</title>
+<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
 	<% 
@@ -17,15 +18,23 @@
 			<% 
 		}
 	%>
-	
+	<h2>Gamão - Login</h2>
 	<form action="UserAccessServlet" method="post">
-		Nome de Usuário: <input type="text" name="userName">
-		<br/>
-		<br/>
-		Senha : <input type="password" name="userPassword">
-		<br/>
-		<br/>
-		<input type="submit" value="Ok">
+		<div class="labels">
+			<p>Nome de Usuário:</p>
+			<p>Senha:</p>
+		</div>
+		<div class="fields">
+			<input class="username" type="text" name="userName">
+			<br>
+			<input class="password" type="password" name="userPassword">
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<input class="submit" type="submit" value="Ok">
 	</form>
 </body>
 </html>

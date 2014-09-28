@@ -1,0 +1,23 @@
+.labels{
+	float: left;
+	margin-right: 4px;
+}
+
+.fields{
+	float: left;
+	margin-top: 12px;
+	clear: right;
+}
+
+.fields .username{
+	margin-top: 4px;
+}
+
+.fields .password{
+	margin-top: 10px;
+}
+
+.submit{
+	width: 80px;
+}
+
