@@ -8,6 +8,7 @@ import br.com.G0921052e1210325.beans.BoardBean;
 public class Board {
 
 	private List<Point> points;
+	private Bar bar; 
 
 	public Board(Player player1, Player player2) {
 		setupPoints();
@@ -116,6 +117,9 @@ public class Board {
 
 			this.points.add(point);
 		}
+		
+		bar = new Bar();
+		
 	}
 
 	private void setupPointsForPlayers(Player player1, Player player2) {
@@ -165,14 +169,14 @@ public class Board {
 			Player player2 = UserAccess.getUserAccessInstance().getPlayer2();
 			
 			if (p.getOwner() == player1) {
-
 				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), player1.getColor());
 			} else {
 				boardBean.setFor(p.getPointNumber(), p.getPieceQuantity(), player2.getColor());
 			}
-
 		}
-
+	
+		boardBean.setBarFor(this.bar.getPieces());
+		
 		return boardBean;
 	}
 }

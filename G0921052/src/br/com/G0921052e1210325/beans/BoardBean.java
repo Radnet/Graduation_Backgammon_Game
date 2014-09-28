@@ -3,6 +3,7 @@ package br.com.G0921052e1210325.beans;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.G0921052e1210325.models.Piece;
 import br.com.G0921052e1210325.models.PointNumber;
 
 public class BoardBean {
@@ -224,6 +225,16 @@ public class BoardBean {
 	private List<String> point22 = new ArrayList<String>();
 	private List<String> point23 = new ArrayList<String>();
 	private List<String> point24 = new ArrayList<String>();
+	
+	private List<String> bar = new ArrayList<String>();
+
+	public List<String> getBar() {
+		return bar;
+	}
+
+	public void setBar(List<String> bar) {
+		this.bar = bar;
+	}
 
 	public BoardBean() {
 		init(this.point1);
@@ -250,6 +261,8 @@ public class BoardBean {
 		init(this.point22);
 		init(this.point23);
 		init(this.point24);
+		
+		init(this.bar);
 	}
 
 	public void setFor(PointNumber pointNumber, int quantity, String color) {
@@ -320,6 +333,17 @@ public class BoardBean {
 	private void init(List<String> p) {
 		for (int i = 0; i < 8; i++) {
 			p.add("");
+		}
+	}
+	
+	public void setBarFor(List<Piece> pieces)
+	{
+		for (int i = 0; i < pieces.size(); i++) {
+			this.bar.set(i, pieces.get(i).getOwner().getColor());
+		}
+		
+		for (Piece piece : pieces) {
+			this.bar.add(piece.getOwner().getColor());
 		}
 	}
 

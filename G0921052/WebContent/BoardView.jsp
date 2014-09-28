@@ -100,14 +100,14 @@ else
 			</div>
 	
 			<div id="barra" class="point-top">
-				<div class="piece blue-piece"></div>
-				<div class="piece blue-piece"></div>
-				<div class="piece black-piece"></div>
-				<div class="piece blue-piece"></div>
-				<div class="piece black-piece"></div>
-				<div class="piece blue-piece"></div>
-				<div class="piece black-piece"></div>
-				<div class="piece black-piece"></div>
+				<div class="piece ${boardBean.bar[0]}"></div>
+				<div class="piece ${boardBean.bar[1]}"></div>
+				<div class="piece ${boardBean.bar[2]}"></div>
+				<div class="piece ${boardBean.bar[3]}"></div>
+				<div class="piece ${boardBean.bar[4]}"></div>
+				<div class="piece ${boardBean.bar[5]}"></div>
+				<div class="piece ${boardBean.bar[6]}"></div>
+				<div class="piece ${boardBean.bar[7]}"></div>
 			</div>
 	
 			<div id="point-19" class="point-top">
