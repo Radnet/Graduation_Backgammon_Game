@@ -47,8 +47,11 @@ public class MovePieceServlet extends HttpServlet {
 		else
 			pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin-1]);
 		Point pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination-1]);
-		
-		if(player.dices.getDicesResult() == null)
+		if(game.getBoard().hasAllPiecesOnLastQuarter(player))
+		{
+			application.setAttribute("gameOver", player.name);
+		}
+		else if(player.dices.getDicesResult() == null)
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "Você precisa jogar os dados primeiro!";

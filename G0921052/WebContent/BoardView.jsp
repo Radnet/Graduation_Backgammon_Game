@@ -9,6 +9,12 @@ if(session.isNew())
 {
 	request.getRequestDispatcher("Index.jsp").forward(request, response);
 }
+else if(application.getAttribute("gameOver") != null)
+{
+	%>
+	<h2>FIM DE JOGO!! O Jogador <%=application.getAttribute("gameOver") %> VENCEU a partida!!</h2>
+	<% 
+}
 else if(session.getAttribute("playerNumber") == null)
 {
 	request.getRequestDispatcher("Index.jsp").forward(request, response);

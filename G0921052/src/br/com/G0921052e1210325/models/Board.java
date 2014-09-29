@@ -181,4 +181,67 @@ public class Board {
 		
 		return boardBean;
 	}
+	
+	public boolean hasAllPiecesOnLastQuarter(Player player)
+	{
+		List<PointNumber> player1BadPoints = new ArrayList<PointNumber>();
+		player1BadPoints.add(PointNumber.Point1);
+		player1BadPoints.add(PointNumber.Point2);
+		player1BadPoints.add(PointNumber.Point3);
+		player1BadPoints.add(PointNumber.Point4);
+		player1BadPoints.add(PointNumber.Point5);
+		player1BadPoints.add(PointNumber.Point6);
+		player1BadPoints.add(PointNumber.Point7);
+		player1BadPoints.add(PointNumber.Point8);
+		player1BadPoints.add(PointNumber.Point9);
+		player1BadPoints.add(PointNumber.Point10);
+		player1BadPoints.add(PointNumber.Point11);
+		player1BadPoints.add(PointNumber.Point12);
+		player1BadPoints.add(PointNumber.Point13);
+		player1BadPoints.add(PointNumber.Point14);
+		player1BadPoints.add(PointNumber.Point15);
+		player1BadPoints.add(PointNumber.Point16);
+		player1BadPoints.add(PointNumber.Point17);
+		player1BadPoints.add(PointNumber.Point18);
+		
+		List<PointNumber> player2BadPoints = new ArrayList<PointNumber>();
+		player2BadPoints.add(PointNumber.Point7);
+		player2BadPoints.add(PointNumber.Point8);
+		player2BadPoints.add(PointNumber.Point9);
+		player2BadPoints.add(PointNumber.Point10);
+		player2BadPoints.add(PointNumber.Point11);
+		player2BadPoints.add(PointNumber.Point12);
+		player2BadPoints.add(PointNumber.Point13);
+		player2BadPoints.add(PointNumber.Point14);
+		player2BadPoints.add(PointNumber.Point15);
+		player2BadPoints.add(PointNumber.Point16);
+		player2BadPoints.add(PointNumber.Point17);
+		player2BadPoints.add(PointNumber.Point18);
+		player2BadPoints.add(PointNumber.Point19);
+		player2BadPoints.add(PointNumber.Point20);
+		player2BadPoints.add(PointNumber.Point21);
+		player2BadPoints.add(PointNumber.Point22);
+		player2BadPoints.add(PointNumber.Point23);
+		player2BadPoints.add(PointNumber.Point24);
+		
+		if(bar.hasPiece(player))
+		{
+			return false;
+		}
+		else if(player.number == 1)
+		{
+			for (Point point : points) {
+				if (point.getOwner() == player && player1BadPoints.contains(point.getPointNumber()))
+					return false;
+			}
+		}
+		else
+		{
+			for (Point point : points) {
+				if (point.getOwner() == player && player2BadPoints.contains(point.getPointNumber()))
+					return false;
+			}
+		}
+		return true;
+	}
 }
