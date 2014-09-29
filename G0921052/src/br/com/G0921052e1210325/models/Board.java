@@ -244,4 +244,14 @@ public class Board {
 		}
 		return true;
 	}
+	public boolean hasNoMorePieces(Player player)
+	{
+		if(bar.hasPiece(player))
+			return false;
+		for (Point point : points) {
+			if (point.getOwner() == player)
+				return false;
+		}
+		return true;
+	}
 }

@@ -41,15 +41,25 @@ public class MovePieceServlet extends HttpServlet {
 		// get origin and destination points
 		int origin = Integer.parseInt(request.getParameter("origin"));
 		int destination = Integer.parseInt(request.getParameter("destination"));
-		Point pointOrigin;
+		Point pointOrigin = null;
+		Point pointDestination = null;
 		if(origin == 25)
-			pointOrigin = null;
+			origin = 25;
 		else
 			pointOrigin = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[origin-1]);
-		Point pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination-1]);
-		if(game.getBoard().hasAllPiecesOnLastQuarter(player))
+		if(destination == 0 || destination == 25)
+			pointDestination = null;
+		else
+			pointDestination = game.getBoard().findPoint(PointNumber.class.getEnumConstants()[destination-1]);
+		if(origin == 25 && (destination == 0 || destination == 25) )
 		{
-			application.setAttribute("gameOver", player.name);
+			gameResponse.error = true;
+			gameResponse.errorMessage = "peças da barra não podem ser retiradas!";
+		}
+		else if( (destination == 0 || destination == 25) && !game.getBoard().hasAllPiecesOnLastQuarter(player))
+		{
+			gameResponse.error = true;
+			gameResponse.errorMessage = "Todas as suas peças devem estar no ultimo quadrante para serem retiradas!";
 		}
 		else if(player.dices.getDicesResult() == null)
 		{
@@ -67,7 +77,7 @@ public class MovePieceServlet extends HttpServlet {
 			gameResponse.error = true;
 			gameResponse.errorMessage = "Você não possui peças na barra.";
 		}
-		else if( (player.number == 1 && destination > 6) || (player.number == 2 && destination < 19) )
+		else if( ((player.number == 1 && destination > 6) || (player.number == 2 && destination < 19)) && origin == 25 )
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "O destino da barra só pode ser no Primeiro Quadrante.";
@@ -86,13 +96,13 @@ public class MovePieceServlet extends HttpServlet {
 		}
 		
 		// destination open
-		else if(pointDestination.isClosed(player))
+		else if(pointDestination != null && pointDestination.isClosed(player))
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "O destino selecionado está fechado.";
 		}
 		// destination not full
-		else if(pointDestination.getPieceQuantity() == 8)
+		else if(pointDestination != null && pointDestination.getPieceQuantity() == 8)
 		{
 			gameResponse.error = true;
 			gameResponse.errorMessage = "O destino está lotado.";
@@ -102,7 +112,7 @@ public class MovePieceServlet extends HttpServlet {
 		{
 			Piece piece;
 			// if there is opponent piece on destination to eat 
-			if(pointDestination.getPieceQuantity() == 1)
+			if(pointDestination != null && pointDestination.getPieceQuantity() == 1 && pointDestination.getOwner() != player)
 			{
 				piece = pointDestination.popPiece();
 				game.getBoard().getBar().pushPiece(piece);				
@@ -111,7 +121,8 @@ public class MovePieceServlet extends HttpServlet {
 				piece = game.getBoard().getBar().popPiece(player);
 			else
 				piece = pointOrigin.popPiece();
-			pointDestination.pushPiece(piece);
+			if(pointDestination != null )
+				pointDestination.pushPiece(piece);
 			// decrement move
 			player.removeMovement(origin, destination);
 			//Change turn if movements are used
@@ -121,6 +132,8 @@ public class MovePieceServlet extends HttpServlet {
 				application.setAttribute("diceBean", diceBean);
 				player.dices.emptyDices();
 				application.setAttribute("turn", Integer.toString(player.opponent.number));
+				if(game.getBoard().hasNoMorePieces(player))
+					application.setAttribute("gameOver", player.name);
 			}
 		}
 		application.setAttribute("boardBean", Game.getGameInstance().getBoard().getBoardBean());

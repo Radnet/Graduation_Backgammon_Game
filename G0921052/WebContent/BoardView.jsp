@@ -341,6 +341,7 @@ else
 		</form>
 		<form action="MovePieceServlet" method="post">
 			Origem: <select name="origin">
+			    <option value="25">barra</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -365,8 +366,8 @@ else
 				<option value="22">22</option>
 				<option value="23">23</option>
 				<option value="24">24</option>
-				<option value="24">25</option>
 			</select> Destino: <select name="destination">
+				<option value="0">0</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -391,6 +392,7 @@ else
 				<option value="22">22</option>
 				<option value="23">23</option>
 				<option value="24">24</option>
+				<option value="25">25</option>
 			</select> <br /> <input type="submit" value="Mover">
 		</form>
 		<br />
