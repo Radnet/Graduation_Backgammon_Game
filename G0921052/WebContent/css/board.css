@@ -3,6 +3,7 @@
 	height: 35px;
 	background-image: url('../img/dice1.gif');
 	background-size: 100% 100%;
+	
 }
 
 #dice2-image{
@@ -45,6 +46,7 @@
 	height: 800px;
 	background-image: url('../img/backgamon-board.gif');
 	background-size: 100% 100%;
+	float: left;
 }
 
 .black-piece{
@@ -170,4 +172,29 @@
 
 #point-01{
 	margin-left: 1102px;
+}
+
+.playerOp{
+	float: left;
+	
+	margin: 0px 4px 4px 4px;
+	width: 200px;
+	padding-left: 4px;
+}
+
+.passarVez{
+	float: right;
+	margin: 2px;
+}
+
+.jogarDados{
+	
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.mover{
+	
+	margin-top: 4px;
+	margin-bottom: 4px;
 }

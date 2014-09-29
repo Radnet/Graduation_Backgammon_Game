@@ -313,16 +313,15 @@ else
 				<div class="piece ${boardBean.point1[0]}"></div>
 			</div>
 		</div>
+		
+		<div class="playerOp">
 		<jsp:useBean id="playerBean" class="br.com.G0921052e1210325.beans.PlayerBean" scope="session" />
-		<br />
-		Jogador ${playerBean.number}
+		
+		<h2> Jogador ${playerBean.number}</h2>
 		<div class="piece ${playerBean.color}"></div>
-		<br /> 
 		<jsp:useBean id="diceBean" class="br.com.G0921052e1210325.beans.DiceBean" scope="application" />
 		Dado1:  <div id="dice${diceBean.dice1}-image"></div>
 		Dado2:  <div id="dice${diceBean.dice2}-image"></div>
-		<br />
-	
 		<%
 		// IF IS YOUR TURN
 		if (((String) application.getAttribute("turn")).equals((String) session.getAttribute("playerNumber"))) {
@@ -336,7 +335,7 @@ else
 				<%
 			}
 		%>
-		<form action="DiceServlet" method="post">
+		<form class="jogarDados" action="DiceServlet" method="post">
 			<input type="submit" value="Jogar Dados">
 		</form>
 		<form action="MovePieceServlet" method="post">
@@ -366,7 +365,7 @@ else
 				<option value="23">23</option>
 				<option value="24">24</option>
 				<option value="24">25</option>
-			</select> Destino: <select name="destination">
+			</select> <br /> Destino: <select name="destination">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -391,11 +390,9 @@ else
 				<option value="22">22</option>
 				<option value="23">23</option>
 				<option value="24">24</option>
-			</select> <br /> <input type="submit" value="Mover">
+			</select> <br /> <input class="mover" type="submit" value="Mover">
 		</form>
-		<br />
-		<br />
-		<form action="ChangeTurnServlet" method="post">
+		<form class="passarVez" action="ChangeTurnServlet" method="post">
 			<input type="submit" value="Passar Vez">
 		</form>
 		<%
@@ -407,6 +404,8 @@ else
 			<%
 		}
 		%>
+		
+		</div>
 	</body>
 <%
 }
