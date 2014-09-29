@@ -1,47 +1,46 @@
-#dice1-image{
+#dice1-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice1.gif');
 	background-size: 100% 100%;
-	
 }
 
-#dice2-image{
+#dice2-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice2.gif');
 	background-size: 100% 100%;
 }
 
-#dice3-image{
+#dice3-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice3.gif');
 	background-size: 100% 100%;
 }
 
-#dice4-image{
+#dice4-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice4.gif');
 	background-size: 100% 100%;
 }
 
-#dice5-image{
+#dice5-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice5.gif');
 	background-size: 100% 100%;
 }
 
-#dice6-image{
+#dice6-image {
 	width: 35px;
 	height: 35px;
 	background-image: url('../img/dice6.gif');
 	background-size: 100% 100%;
 }
 
-#board-image{
+#board-image {
 	width: 1200px;
 	height: 800px;
 	background-image: url('../img/backgamon-board.gif');
@@ -49,152 +48,152 @@
 	float: left;
 }
 
-.black-piece{
-	background: #000000;	
+.black-piece {
+	background: #000000;
 }
 
-.blue-piece{
+.blue-piece {
 	background: #024BA2;
 }
 
-.piece{
+.piece {
 	margin-top: 4px;
 	width: 40px;
 	height: 40px;
-	border-radius:25px;
+	border-radius: 25px;
 	margin-top: 4px;
 }
 
-.point-top{
+.point-top {
 	float: left;
 	margin-top: 23px;
 }
 
-.point-botton{
-	margin-top: 420px;	
-	position: absolute;	
+.point-botton {
+	margin-top: 420px;
+	position: absolute;
 }
 
-#point-13{
+#point-13 {
 	margin-left: 57px;
 }
-#point-14{
+
+#point-14 {
 	margin-left: 50px;
 }
 
-#point-15{
+#point-15 {
 	margin-left: 50px;
 }
 
-#point-16{
+#point-16 {
 	margin-left: 50px;
 }
 
-#point-17{
+#point-17 {
 	margin-left: 50px;
 }
 
-#point-18{
+#point-18 {
 	margin-left: 50px;
 }
 
-#barra{
-	float: left;		
+#barra {
+	float: left;
 	margin-top: 100px;
 	margin-left: 34px;
 }
 
-#point-19{
+#point-19 {
 	margin-left: 34px;
 }
 
-#point-20{
+#point-20 {
 	margin-left: 50px;
 }
 
-#point-21{
+#point-21 {
 	margin-left: 50px;
 }
 
-#point-22{
+#point-22 {
 	margin-left: 50px;
 }
 
-#point-23{
+#point-23 {
 	margin-left: 50px;
 }
 
-#point-24{
+#point-24 {
 	margin-left: 50px;
 }
 
-#point-12{
+#point-12 {
 	margin-left: 58px;
 }
-#point-11{
+
+#point-11 {
 	margin-left: 147px;
 }
-#point-10{
+
+#point-10 {
 	margin-left: 237px;
 }
 
-#point-09{
+#point-09 {
 	margin-left: 327px;
 }
 
-#point-08{
+#point-08 {
 	margin-left: 415px;
 }
 
-#point-07{
+#point-07 {
 	margin-left: 505px;
 }
 
-#point-06{
+#point-06 {
 	margin-left: 655px;
 }
 
-#point-05{
+#point-05 {
 	margin-left: 743px;
 }
 
-#point-04{
+#point-04 {
 	margin-left: 833px;
 }
 
-#point-03{
+#point-03 {
 	margin-left: 923px;
 }
 
-#point-02{
+#point-02 {
 	margin-left: 1013px;
 }
 
-#point-01{
+#point-01 {
 	margin-left: 1102px;
 }
 
-.playerOp{
+.playerOp {
 	float: left;
-	
 	margin: 0px 4px 4px 4px;
 	width: 200px;
 	padding-left: 4px;
 }
 
-.passarVez{
+.passarVez {
 	float: right;
 	margin: 2px;
 }
 
-.jogarDados{
-	
+.jogarDados {
 	margin-top: 4px;
 	margin-bottom: 4px;
 }
 
-.mover{
-	
+.mover {
 	margin-top: 4px;
 	margin-bottom: 4px;
 }

@@ -40,9 +40,9 @@ public class BoardTest {
 
 		List<PointNumber> player1PointsNumbers = new ArrayList<PointNumber>();
 		player1PointsNumbers.add(PointNumber.Point1);
-		player1PointsNumbers.add(PointNumber.Point6);
-		player1PointsNumbers.add(PointNumber.Point8);
 		player1PointsNumbers.add(PointNumber.Point12);
+		player1PointsNumbers.add(PointNumber.Point17);
+		player1PointsNumbers.add(PointNumber.Point19);
 
 		List<Integer> player1PiecesInPoint = new ArrayList<Integer>();
 		player1PiecesInPoint.add(2);
@@ -68,9 +68,9 @@ public class BoardTest {
 		Board board = new Board(player1, player2);
 
 		List<PointNumber> player2PointsNumbers = new ArrayList<PointNumber>();
+		player2PointsNumbers.add(PointNumber.Point6);
+		player2PointsNumbers.add(PointNumber.Point8);
 		player2PointsNumbers.add(PointNumber.Point13);
-		player2PointsNumbers.add(PointNumber.Point17);
-		player2PointsNumbers.add(PointNumber.Point19);
 		player2PointsNumbers.add(PointNumber.Point24);
 
 		List<Integer> player2PiecesInPoint = new ArrayList<Integer>();

@@ -44,19 +44,6 @@ public class PointTest {
 	}
 
 	@Test
-	public void pushPiece_should_return_false_if_points_are_closed() {
-
-		Point p = new Point(PointNumber.Point1);
-		p.pushPiece(new Piece(new Player()));
-		p.pushPiece(new Piece(new Player()));
-
-		Boolean result = p.pushPiece(new Piece(new Player()));
-
-		Assert.assertFalse(result);
-		Assert.assertEquals(2, p.getPieceQuantity());
-	}
-
-	@Test
 	public void pushPiece_should_set_owner_if_pieces_is_empty() {
 
 		Point p = new Point(PointNumber.Point1);
